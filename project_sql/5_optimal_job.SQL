@@ -12,10 +12,10 @@ AND salary_year_avg IS NOT NULL
 AND job_work_from_home = True
 GROUP BY
 skills_dim.skill_id
-
+HAVING
+COUNT(skills_job_dim.job_id) > 10
 ORDER BY
-demand_count DESC,
-avg_salary DESC
-
+avg_salary DESC,
+demand_count DESC
 LIMIT 25;
 
